@@ -1,0 +1,1298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #270008;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.4;
+}
+
+/* ШАПКА */
+.header {
+    background-color: #270008;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 15px 18px;
+    position: relative;
+    z-index: 100;
+    min-height: 250px;
+}
+
+/* Кнопка фильтра — над аватаркой */
+.header-top-row {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+}
+
+.filter-icon {
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.filter-icon:active {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* АВАТАРКА — ЦАРЬ */
+.header-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 6px solid #FFFFFF;
+    object-fit: cover;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+    margin-bottom: 16px;
+    background-color: #F9EBE8;
+}
+
+/* Название */
+.header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 0 6px;
+    background-color: rgba(255, 255, 255, 0.18);
+    padding: 10px 28px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Подпись */
+.header-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* ПОИСК */
+.search-bar {
+    text-align: center;
+    padding: 14px 16px;
+    background-color: #F9EBE8;
+    border-bottom: 2px solid #270008;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 16px;
+    border: 2px solid #270008;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #270008;
+    background-color: #FFFFFF;
+    outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.search-bar input::placeholder {
+    color: #270008;
+    opacity: 0.45;
+    font-size: 14px;
+}
+
+/* ЗАГОЛОВОК КАТАЛОГА */
+.section-title {
+    text-align: center;
+    padding: 15px 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #270008;
+}
+
+
+/* ОВЕРЛЕЙ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* ВЫЕЗЖАЮЩАЯ ПАНЕЛЬ ФИЛЬТРОВ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    height: 100dvh;
+    background-color: #e0e0e0;
+    border-right: 3px solid #270008;
+    z-index: 999;
+    padding: 25px 18px 18px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar .close-panel {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #270008;
+    font-weight: bold;
+    padding: 5px;
+    z-index: 5;
+}
+
+.sidebar h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #270008;
+    color: #270008;
+}
+
+.filter-group {
+    margin-bottom: 22px;
+}
+
+.filter-group .filter-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: #270008;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 16px;
+    padding: 7px 0;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    color: #270008;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.filter-group input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #270008;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.reset-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #e0e0e0;
+    border: 2px solid #270008;
+    color: #270008;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 8px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.reset-btn:active {
+    background-color: #270008;
+    color: #e0e0e0;
+}
+
+/* ОСНОВНОЙ КОНТЕЙНЕР */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px;
+}
+ .section-title {
+    text-align: left;
+    padding: 8px 4px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #270008;
+    margin-bottom: 12px;
+    color: #270008;
+}
+
+/* КАТАЛОГ — СЕТКА */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 10px;
+}
+
+.item {
+    background-color: #e0e0e0;
+    border: 1px solid #270008;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.item:active {
+    background-color: #270008;
+    color: #e0e0e0;
+}
+
+.item:active .brand,
+.item:active .type,
+.item:active .price {
+    color: #e0e0e0;
+}
+
+/* МЕСТО ПОД ФОТО */
+.item .photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #270008;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.item .photo .camera-icon {
+    font-size: 36px;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.item .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ПОДПИСЬ */
+.item .info {
+    padding: 12px 8px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item .brand {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #270008;
+}
+
+.item .type {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+    color: #270008;
+}
+
+.item .price {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+    color: #270008;
+}
+
+.item.hidden {
+    display: none;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
+    display: none;
+    grid-column: 1 / -1;
+    color: #270008;
+}
+
+.no-results.show {
+    display: block;
+}
+
+/* МОДАЛЬНОЕ ОКНО ТОВАРА */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #e0e0e0;
+    border: 3px solid #270008;
+    padding: 20px 16px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    color: #270008;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #270008;
+    font-weight: bold;
+    padding: 5px;
+    z-index: 5;
+}
+
+.modal-content .modal-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #e0e0e0;
+    border: 1px solid #270008;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    opacity: 0.3;
+}
+
+.modal-content .modal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.modal-content .modal-type {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.65;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+}
+
+.modal-content .modal-desc {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    text-align: left;
+    border-top: 1px solid #270008;
+    border-bottom: 1px solid #270008;
+    padding: 14px 0;
+}
+
+.modal-content .modal-price {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+ .modal-content .order-btn {
+    display: block;
+    width: 100%;
+    background-color: #270008;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.modal-content .order-btn:active {
+    background-color: #e0e0e0;
+    color: #270008;
+    outline: 2px solid #270008;
+}
+
+/* ПОДВАЛ */
+.footer {
+    background-color: #270008;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 14px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+.footer a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+/* ТЕЛЕФОН: две колонки на маленьких экранах */
+@media (max-width: 380px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .item .brand {
+        font-size: 12px;
+    }
+    .item .type {
+        font-size: 11px;
+    }
+    .item .price {
+        font-size: 14px;
+    }
+    .header h1 {
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+    .filter-icon {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 381px) and (max-width: 480px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .header h1 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .catalog {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .catalog {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+    .item .photo .camera-icon {
+        font-size: 44px;
+    }
+}
+/* КНОПКА НАВЕРХ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    background-color: #270008;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:active {
+    background-color: #FFFFFF;
+    color: #270008;
+    border-color: #270008;
+}
+/* ==================== */
+/* СОРТИРОВКА ПО ЦЕНЕ */
+/* ==================== */
+.sort-group {
+    margin-bottom: 22px;
+}
+
+.sort-group .filter-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: #270008;
+}
+
+.sort-group label {
+    display: block;
+    font-size: 16px;
+    padding: 7px 0;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    color: #270008;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sort-group input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #270008;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+/* ==================== */
+/* ИКОНКИ В ШАПКЕ */
+/* ==================== */
+.header-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.header-action-btn {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    text-decoration: none;
+}
+
+.header-action-btn:active {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Счётчик на иконке */
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #FFFFFF;
+    color: #270008;
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    display: none;
+}
+
+.badge.active {
+    display: flex;
+}
+
+/* ==================== */
+/* ИКОНКА ИЗБРАННОГО НА КАРТОЧКЕ */
+/* ==================== */
+.item .photo {
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid #270008;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    line-height: 1;
+}
+
+.fav-btn:active {
+    transform: scale(1.2);
+}
+
+.fav-btn.liked {
+    background-color: #270008;
+    border-color: #270008;
+}
+
+/* ==================== */
+/* КНОПКА ПОДЕЛИТЬСЯ В МОДАЛЬНОМ ОКНЕ */
+/* ==================== */
+.modal-actions-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.modal-share-btn,
+.modal-fav-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #270008;
+    background-color: #FFFFFF;
+    color: #270008;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center;
+}
+
+.modal-share-btn:active,
+.modal-fav-btn:active {
+    background-color: #270008;
+    color: #FFFFFF;
+}
+
+.modal-fav-btn.liked {
+    background-color: #270008;
+    color: #FFFFFF;
+}
+.apply-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #270008;
+    border: 2px solid #270008;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-bottom: 8px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.apply-btn:active {
+    background-color: #FFFFFF;
+    color: #270008;
+}
+/* ==================== */
+/* ПЛАШКИ "ХИТ" И "НОВИНКА" */
+/* ==================== */
+.item .badge-hit,
+.item .badge-new {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    padding: 3px 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.item .badge-hit {
+    background-color: #5C1624;
+    color: #FFFFFF;
+}
+
+.item .badge-new {
+    background-color: #FFFFFF;
+    color: #5C1624;
+    border: 1px solid #5C1624;
+}
+
+/* ==================== */
+/* ТЁМНАЯ ТЕМА */
+/* ==================== */
+body.dark {
+    background-color: #1A0A0F;
+    color: #F0D5DC;
+}
+
+body.dark .header {
+    background-color: #3D0F1A;
+}
+
+body.dark .search-bar {
+    background-color: #2B1017;
+    border-bottom-color: #6B2D3A;
+}
+
+body.dark .search-bar input {
+    background-color: #1A0A0F;
+    border-color: #6B2D3A;
+    color: #F0D5DC;
+}
+
+body.dark .search-bar input::placeholder {
+    color: #F0D5DC;
+    opacity: 0.5;
+}
+
+body.dark .sidebar {
+    background-color: #1A0A0F;
+    border-right-color: #6B2D3A;
+}
+
+body.dark .sidebar h3,
+body.dark .sidebar .filter-title,
+body.dark .sidebar label,
+body.dark .sidebar .close-panel {
+    color: #F0D5DC;
+}
+
+body.dark .sidebar h3 {
+    border-bottom-color: #6B2D3A;
+}
+
+body.dark .sidebar input[type="checkbox"],
+body.dark .sidebar input[type="radio"] {
+    accent-color: #8B3A4A;
+}
+
+body.dark .reset-btn,
+body.dark .apply-btn {
+    border-color: #6B2D3A;
+}
+
+body.dark .reset-btn {
+    background-color: #1A0A0F;
+    color: #F0D5DC;
+}
+
+body.dark .apply-btn {
+    background-color: #8B3A4A;
+    border-color: #8B3A4A;
+}
+
+body.dark .section-title {
+    color: #F0D5DC;
+    border-bottom-color: #6B2D3A;
+}
+
+body.dark .item {
+    background-color: #2B1017;
+    border-color: #6B2D3A;
+}
+
+body.dark .item .photo {
+    background-color: #1A0A0F;
+    border-bottom-color: #6B2D3A;
+}
+
+body.dark .item .brand,
+body.dark .item .type,
+body.dark .item .price {
+    color: #F0D5DC;
+}
+
+body.dark .item:active {
+    background-color: #8B3A4A;
+    color: #FFFFFF;
+}
+
+body.dark .item:active .brand,
+body.dark .item:active .type,
+body.dark .item:active .price {
+    color: #FFFFFF;
+}
+
+body.dark .fav-btn {
+    background-color: rgba(26, 10, 15, 0.85);
+    border-color: #6B2D3A;
+    color: #F0D5DC;
+}
+
+body.dark .fav-btn.liked {
+    background-color: #8B3A4A;
+    border-color: #8B3A4A;
+    color: #FFFFFF;
+}
+
+body.dark .modal-content {
+    background-color: #1A0A0F;
+    border-color: #6B2D3A;
+}
+
+body.dark .modal-content .close,
+body.dark .modal-content h2,
+body.dark .modal-content .modal-type,
+body.dark .modal-content .modal-desc,
+body.dark .modal-content .modal-price {
+    color: #F0D5DC;
+}
+
+body.dark .modal-content .modal-desc {
+    border-top-color: #6B2D3A;
+    border-bottom-color: #6B2D3A;
+}
+
+body.dark .modal-content .modal-photo {
+    background-color: #2B1017;
+    border-color: #6B2D3A;
+}
+
+body.dark .modal-content .order-btn {
+    background-color: #8B3A4A;
+}
+
+body.dark .modal-content .order-btn:active {
+    background-color: #1A0A0F;
+    color: #F0D5DC;
+    outline-color: #6B2D3A;
+}
+
+body.dark .modal-share-btn,
+body.dark .modal-fav-btn {
+    border-color: #6B2D3A;
+    background-color: #2B1017;
+    color: #F0D5DC;
+}
+
+body.dark .modal-share-btn:active,
+body.dark .modal-fav-btn:active {
+    background-color: #8B3A4A;
+    color: #FFFFFF;
+}
+
+body.dark .modal-fav-btn.liked {
+    background-color: #8B3A4A;
+    color: #FFFFFF;
+}
+
+body.dark .footer {
+    background-color: #3D0F1A;
+}
+
+body.dark .no-results {
+    color: #F0D5DC;
+}
+
+body.dark .scroll-to-top {
+    background-color: #8B3A4A;
+    border-color: #F0D5DC;
+}
+
+body.dark .scroll-to-top:active {
+    background-color: #1A0A0F;
+    color: #F0D5DC;
+    border-color: #8B3A4A;
+}
+
+body.dark .header-action-btn {
+    background-color: rgba(240, 213, 220, 0.15);
+    color: #F0D5DC;
+}
+
+body.dark .header-action-btn:active {
+    background-color: rgba(240, 213, 220, 0.3);
+}
+
+body.dark .badge {
+    background-color: #F0D5DC;
+    color: #3D0F1A;
+}
+
+body.dark .sort-group .filter-title {
+    color: #F0D5DC;
+}
+
+body.dark .sort-group label {
+    color: #F0D5DC;
+}
+
+body.dark .apply-btn {
+    background-color: #8B3A4A;
+}
+
+body.dark .apply-btn:active {
+    background-color: #1A0A0F;
+    color: #F0D5DC;
+}
+
+/* ==================== */
+/* ИСТОРИЯ ПРОСМОТРОВ — МОДАЛЬНОЕ ОКНО */
+/* ==================== */
+.history-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.history-modal.active {
+    display: flex;
+}
+
+.history-modal-content {
+    background-color: #FDF8F5;
+    border: 3px solid #5C1624;
+    padding: 20px 16px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    max-height: 80vh;
+    max-height: 80dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.dark .history-modal-content {
+    background-color: #1A0A0F;
+    border-color: #6B2D3A;
+}
+
+.history-modal-content .close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #5C1624;
+    font-weight: bold;
+    padding: 5px;
+    z-index: 5;
+}
+
+body.dark .history-modal-content .close {
+    color: #F0D5DC;
+}
+
+.history-modal-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5C1624;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5C1624;
+    text-align: center;
+}
+
+body.dark .history-modal-content h3 {
+    color: #F0D5DC;
+    border-bottom-color: #6B2D3A;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background-color: #FFF5F5;
+    border: 1px solid #5C1624;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .history-row {
+    background-color: #2B1017;
+    border-color: #6B2D3A;
+}
+
+.history-row:active {
+    background-color: #5C1624;
+    color: #FFFFFF;
+}
+
+body.dark .history-row:active {
+    background-color: #8B3A4A;
+}
+
+.history-row .history-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.history-row .history-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #5C1624;
+}
+
+body.dark .history-row .history-name {
+    color: #F0D5DC;
+}
+
+.history-row:active .history-name {
+    color: #FFFFFF;
+}
+
+.history-row .history-price {
+    font-size: 11px;
+    opacity: 0.7;
+    color: #5C1624;
+}
+
+body.dark .history-row .history-price {
+    color: #F0D5DC;
+}
+
+.history-row:active .history-price {
+    color: #FFFFFF;
+}
+
+.history-row .history-arrow {
+    font-size: 16px;
+    color: #5C1624;
+}
+
+body.dark .history-row .history-arrow {
+    color: #F0D5DC;
+}
+
+.history-row:active .history-arrow {
+    color: #FFFFFF;
+}
+
+.history-empty {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    opacity: 0.6;
+    color: #5C1624;
+}
+
+body.dark .history-empty {
+    color: #F0D5DC;
+}
+
+.history-clear-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #5C1624;
+    color: #5C1624;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .history-clear-btn {
+    background-color: #1A0A0F;
+    border-color: #6B2D3A;
+    color: #F0D5DC;
+}
+
+.history-clear-btn:active {
+    background-color: #5C1624;
+    color: #FFFFFF;
+}
+
+body.dark .history-clear-btn:active {
+    background-color: #8B3A4A;
+}
+
+/* ==================== */
+/* АНИМАЦИЯ УЛЕТА В КОРЗИНУ */
+/* ==================== */
+.fly-to-cart {
+    position: fixed;
+    z-index: 3000;
+    pointer-events: none;
+    font-size: 28px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* ==================== */
+/* СЧЁТЧИК ПРОСМОТРОВ */
+/* ==================== */
+.views-counter {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    margin-top: 3px;
+    color: #5C1624;
+    text-align: center;
+}
+
+body.dark .views-counter {
+    color: #F0D5DC;
+}
+
+.item:active .views-counter {
+    color: #FFFFFF;
+}
+/* ==================== */
+/* ПЕРЕКЛЮЧАТЕЛЬ ТИПА РАЗМЕРА */
+/* ==================== */
+.size-type-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+}
+
+.size-type-btn {
+    flex: 1;
+    padding: 8px 4px;
+    background-color: #FFFFFF;
+    border: 2px solid #5C1624;
+    color: #5C1624;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    text-transform: uppercase;
+}
+
+.size-type-btn:first-child {
+    border-right: none;
+}
+
+.size-type-btn.active {
+    background-color: #5C1624;
+    color: #FFFFFF;
+}
+
+body.dark .size-type-btn {
+    background-color: #1A0A0F;
+    border-color: #6B2D3A;
+    color: #F0D5DC;
+}
+
+body.dark .size-type-btn.active {
+    background-color: #8B3A4A;
+    color: #FFFFFF;
+}

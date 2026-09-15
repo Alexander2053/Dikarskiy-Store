@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dikarskiy Store</title>
+    <link rel="icon" type="image/png" href="D:\ᴅɪᴋᴀʀsᴋɪʏ sᴛᴏʀᴇ\foto\photo_2026-09-15_16-40-44.jpg">
+<link rel="apple-touch-icon" type="image/png" href="D:\ᴅɪᴋᴀʀsᴋɪʏ sᴛᴏʀᴇ\foto\photo_2026-09-15_16-40-44.jpg">
+</head>
+<body>
+
+
+<!-- ШАПКА -->
+<div class="header">
+    <!-- Кнопка фильтра -->
+    <div class="header-top-row">
+        <span class="filter-icon" onclick="openPanel()" title="Фильтры">☰</span>
+    </div>
+
+ <!-- Иконки: тема, история, избранное и корзина -->
+ <div class="header-actions">
+    <button class="header-action-btn" onclick="toggleTheme()" title="Тема"><span id="themeIcon">🌙</span></button>
+    <button class="header-action-btn" onclick="openHistory()" title="История">🕐</button>
+    <button class="header-action-btn" onclick="openFavorites()" title="Избранное">♡<span class="badge" id="favBadge">0</span></button>
+</div>
+
+    <!-- Аватарка и название -->
+    <img src="D:\ᴅɪᴋᴀʀsᴋɪʏ sᴛᴏʀᴇ\foto\photo_2026-09-15_16-40-44.jpg" alt="Logo" class="header-avatar">
+    <h1>Dikarskiy Store</h1>
+    <p class="header-subtitle">ОРИГИНАЛ  • ПРОВЕРЕНО • ЧЕСТНО</p>
+</div>
+    <!-- ОВЕРЛЕЙ -->
+    <div class="overlay" id="overlay" onclick="closePanel()"></div>
+
+<!-- КНОПКА НАВЕРХ -->
+<div class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</div>
+
+ <!-- ВЫЕЗЖАЮЩАЯ ПАНЕЛЬ ФИЛЬТРОВ -->
+<div class="sidebar" id="sidebar">
+    <span class="close-panel" onclick="closePanel()">✕</span>
+    <h3>Фильтры</h3>
+
+    <div class="filter-group">
+        <div class="filter-title">Категория</div>
+        <label><input type="checkbox" class="filter-category" value="shoes" onchange="applyFilters()"> 👟 Обувь</label>
+        <label><input type="checkbox" class="filter-category" value="hoodies" onchange="applyFilters()"> 👕 Кофты</label>
+        <label><input type="checkbox" class="filter-category" value="pants" onchange="applyFilters()"> 👖 Штаны</label>
+        <label><input type="checkbox" class="filter-category" value="caps" onchange="applyFilters()"> 🧢 Кепки</label>
+        <label><input type="checkbox" class="filter-category" value="bags" onchange="applyFilters()"> 👜 Сумки</label>
+        <label><input type="checkbox" class="filter-category" value="jackets" onchange="applyFilters()"> 🧥 Куртки</label>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">Бренд</div>
+        <label><input type="checkbox" class="filter-brand" value="asics" onchange="applyFilters()"> ASICS</label>
+        <label><input type="checkbox" class="filter-brand" value="salomon" onchange="applyFilters()"> SALOMON</label>
+        <label><input type="checkbox" class="filter-brand" value="newbalance" onchange="applyFilters()"> NEW BALANCE</label>
+        <label><input type="checkbox" class="filter-brand" value="stussy" onchange="applyFilters()"> STÜSSY</label>
+        <label><input type="checkbox" class="filter-brand" value="carhartt" onchange="applyFilters()"> CARHARTT WIP</label>
+        <label><input type="checkbox" class="filter-brand" value="ami" onchange="applyFilters()"> AMI PARIS</label>
+        <label><input type="checkbox" class="filter-brand" value="arcteryx" onchange="applyFilters()"> ARC'TERYX</label>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">Размер</div>
+        <div class="size-type-toggle">
+            <button class="size-type-btn active" id="sizeTypeShoes" onclick="switchSizeType('shoes')">👟 Обувь</button>
+            <button class="size-type-btn" id="sizeTypeClothes" onclick="switchSizeType('clothes')">👕 Одежда</button>
+        </div>
+        <div id="sizeCheckboxes">
+            <label><input type="checkbox" class="filter-size" value="37" onchange="applyFilters()"> 37</label>
+            <label><input type="checkbox" class="filter-size" value="38" onchange="applyFilters()"> 38</label>
+            <label><input type="checkbox" class="filter-size" value="39" onchange="applyFilters()"> 39</label>
+            <label><input type="checkbox" class="filter-size" value="40" onchange="applyFilters()"> 40</label>
+            <label><input type="checkbox" class="filter-size" value="41" onchange="applyFilters()"> 41</label>
+            <label><input type="checkbox" class="filter-size" value="42" onchange="applyFilters()"> 42</label>
+            <label><input type="checkbox" class="filter-size" value="43" onchange="applyFilters()"> 43</label>
+            <label><input type="checkbox" class="filter-size" value="44" onchange="applyFilters()"> 44</label>
+            <label><input type="checkbox" class="filter-size" value="45" onchange="applyFilters()"> 45</label>
+        </div>
+    </div>
+
+    <div class="sort-group">
+        <div class="filter-title">Сортировка по цене</div>
+        <label><input type="radio" name="sortPrice" value="default" onchange="applyFilters()" checked> По умолчанию</label>
+        <label><input type="radio" name="sortPrice" value="cheap" onchange="applyFilters()"> Сначала дешёвые ↑</label>
+        <label><input type="radio" name="sortPrice" value="expensive" onchange="applyFilters()"> Сначала дорогие ↓</label>
+    </div>
+
+    <button class="apply-btn" onclick="applyFilters(); closePanel();">✓ Применить</button>
+    <button class="reset-btn" onclick="resetFilters()">✕ Сбросить всё</button>
+</div>
+
+
+    <!-- СТРОКА ПОИСКА -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="🔍 ПОИСК ПО БРЕНДУ ИЛИ НАЗВАНИЮ..." oninput="applyFilters()">
+    </div>
+
+    <!-- КАТАЛОГ -->
+    <div class="main-container">
+        <div class="section-title">— Все товары —</div>
+        <div class="catalog" id="catalog">
+
+    <!-- ОБУВЬ -->
+<!-- ОБУВЬ -->
+<div class="item" data-id="asics-kayano14" data-category="shoes" data-brand="asics" data-price="14000" data-size="37,38,39,40,41,42,43,44,45" data-search="asics kayano 14 кроссовки" onclick="openModal('Asics Kayano 14', 'Кроссовки', 'Легендарная модель из азиатской линейки. Технология GEL, дышащий верх. Полный оригинал с проверкой Poizon.', '14 000 ₽'); addToHistory('Asics Kayano 14', '14 000 ₽'); countView('asics-kayano14');">
+    <div class="photo"><span class="badge-hit">ХИТ</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Asics Kayano 14', '14 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">ASICS</div><div class="type">Kayano 14</div><div class="price">от 14 000 ₽</div><div class="views-counter" id="views-asics-kayano14">👁 0</div></div>
+</div>
+
+<div class="item" data-id="salomon-xt6" data-category="shoes" data-brand="salomon" data-price="18000" data-size="37,38,39,40,41,42,43,44,45" data-search="salomon xt-6 кроссовки" onclick="openModal('Salomon XT-6', 'Кроссовки', 'Культовая модель для города и трейла. Система быстрой шнуровки, подошва Contagrip.', '18 000 ₽'); addToHistory('Salomon XT-6', '18 000 ₽'); countView('salomon-xt6');">
+    <div class="photo"><span class="badge-new">NEW</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Salomon XT-6', '18 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">SALOMON</div><div class="type">XT-6</div><div class="price">от 18 000 ₽</div><div class="views-counter" id="views-salomon-xt6">👁 0</div></div>
+</div>
+
+<div class="item" data-id="nb-2002r" data-category="shoes" data-brand="newbalance" data-price="16000" data-size="37,38,39,40,41,42,43,44,45" data-search="new balance 2002r кроссовки" onclick="openModal('New Balance 2002R', 'Кроссовки', 'Бестселлер из коллаборации с китайскими дизайнерами. Верх из замши и сетки.', '16 000 ₽'); addToHistory('New Balance 2002R', '16 000 ₽'); countView('nb-2002r');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'New Balance 2002R', '16 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">NEW BALANCE</div><div class="type">2002R</div><div class="price">от 16 000 ₽</div><div class="views-counter" id="views-nb-2002r">👁 0</div></div>
+</div>
+
+<!-- КОФТЫ -->
+<div class="item" data-id="stussy-8ball" data-category="hoodies" data-brand="stussy" data-price="12000" data-size="M,L,XL" data-search="stussy худи 8 ball" onclick="openModal('Stüssy 8-Ball', 'Худи', 'Знаменитое худи с принтом 8-Ball. Плотный футер, оверсайз крой. Размеры M, L, XL.', '12 000 ₽'); addToHistory('Stüssy 8-Ball', '12 000 ₽'); countView('stussy-8ball');">
+    <div class="photo"><span class="badge-hit">ХИТ</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Stüssy 8-Ball', '12 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">STÜSSY</div><div class="type">Худи 8-Ball</div><div class="price">от 12 000 ₽</div><div class="views-counter" id="views-stussy-8ball">👁 0</div></div>
+</div>
+
+<div class="item" data-id="carhartt-sweatshirt" data-category="hoodies" data-brand="carhartt" data-price="9000" data-size="S,M,L,XL" data-search="carhartt wip свитшот" onclick="openModal('Carhartt WIP', 'Свитшот', 'Свитшот из органического хлопка. Логотип на груди вышивкой.', '9 000 ₽'); addToHistory('Carhartt WIP', '9 000 ₽'); countView('carhartt-sweatshirt');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Carhartt WIP', '9 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">CARHARTT WIP</div><div class="type">Свитшот</div><div class="price">от 9 000 ₽</div><div class="views-counter" id="views-carhartt-sweatshirt">👁 0</div></div>
+</div>
+
+<div class="item" data-id="ami-paris-tshirt" data-category="hoodies" data-brand="ami" data-price="15000" data-size="S,M,L" data-search="ami paris футболка сердечко" onclick="openModal('AMI Paris', 'Футболка', 'Футболка с логотипом Ami de Coeur. Органический хлопок, свободный крой.', '15 000 ₽'); addToHistory('AMI Paris', '15 000 ₽'); countView('ami-paris-tshirt');">
+    <div class="photo"><span class="badge-new">NEW</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'AMI Paris', '15 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">AMI PARIS</div><div class="type">Футболка</div><div class="price">от 15 000 ₽</div><div class="views-counter" id="views-ami-paris-tshirt">👁 0</div></div>
+</div>
+
+<!-- ШТАНЫ -->
+<div class="item" data-id="carhartt-aviation" data-category="pants" data-brand="carhartt" data-price="11000" data-size="M,L,XL" data-search="carhartt wip aviation штаны карго" onclick="openModal('Carhartt WIP Aviation', 'Карго-штаны', 'Культовые штаны Aviation Pant. Плотный хлопок, усиленные колени.', '11 000 ₽'); addToHistory('Carhartt WIP Aviation', '11 000 ₽'); countView('carhartt-aviation');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Carhartt WIP Aviation', '11 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">CARHARTT WIP</div><div class="type">Aviation Pant</div><div class="price">от 11 000 ₽</div><div class="views-counter" id="views-carhartt-aviation">👁 0</div></div>
+</div>
+
+<div class="item" data-id="arcteryx-gamma" data-category="pants" data-brand="arcteryx" data-price="19000" data-size="S,M,L" data-search="arcteryx gamma lt штаны" onclick="openModal('Arc\'teryx Gamma', 'Треккинговые штаны', 'Техничные штаны Gamma LT. Софтшелл, водоотталкивающая пропитка.', '19 000 ₽'); addToHistory('Arc\'teryx Gamma', '19 000 ₽'); countView('arcteryx-gamma');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Arc\'teryx Gamma', '19 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">ARC'TERYX</div><div class="type">Gamma LT</div><div class="price">от 19 000 ₽</div><div class="views-counter" id="views-arcteryx-gamma">👁 0</div></div>
+</div>
+
+<!-- КЕПКИ -->
+<div class="item" data-id="carhartt-cap" data-category="caps" data-brand="carhartt" data-price="4500" data-size="M" data-search="carhartt wip бейсболка кепка" onclick="openModal('Carhartt WIP Cap', 'Бейсболка', 'Классическая бейсболка с прямым козырьком и вышитым логотипом.', '4 500 ₽'); addToHistory('Carhartt WIP Cap', '4 500 ₽'); countView('carhartt-cap');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Carhartt WIP Cap', '4 500 ₽')">♡</button></div>
+    <div class="info"><div class="brand">CARHARTT WIP</div><div class="type">Бейсболка</div><div class="price">от 4 500 ₽</div><div class="views-counter" id="views-carhartt-cap">👁 0</div></div>
+</div>
+
+<div class="item" data-id="stussy-cap" data-category="caps" data-brand="stussy" data-price="5500" data-size="M" data-search="stussy stock cap кепка" onclick="openModal('Stüssy Stock Cap', 'Бейсболка', 'Бейсболка из твила с вышитым логотипом Stüssy. Унисекс.', '5 500 ₽'); addToHistory('Stüssy Stock Cap', '5 500 ₽'); countView('stussy-cap');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Stüssy Stock Cap', '5 500 ₽')">♡</button></div>
+    <div class="info"><div class="brand">STÜSSY</div><div class="type">Stock Cap</div><div class="price">от 5 500 ₽</div><div class="views-counter" id="views-stussy-cap">👁 0</div></div>
+</div>
+
+<!-- СУМКИ -->
+<div class="item" data-id="arcteryx-mantis" data-category="bags" data-brand="arcteryx" data-price="8000" data-size="M" data-search="arcteryx mantis сумка поясная" onclick="openModal('Arc\'teryx Mantis 1', 'Поясная сумка', 'Компактная поясная сумка на 1.5 литра. Нейлон, всепогодные молнии.', '8 000 ₽'); addToHistory('Arc\'teryx Mantis 1', '8 000 ₽'); countView('arcteryx-mantis');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Arc\'teryx Mantis 1', '8 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">ARC'TERYX</div><div class="type">Mantis 1</div><div class="price">от 8 000 ₽</div><div class="views-counter" id="views-arcteryx-mantis">👁 0</div></div>
+</div>
+
+<div class="item" data-id="stussy-tote" data-category="bags" data-brand="stussy" data-price="3500" data-size="M" data-search="stussy tote bag шоппер сумка" onclick="openModal('Stüssy Tote', 'Шоппер', 'Холщовый шоппер с принтом Stüssy. Вместительный, прочный.', '3 500 ₽'); addToHistory('Stüssy Tote', '3 500 ₽'); countView('stussy-tote');">
+    <div class="photo"><span class="badge-new">NEW</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Stüssy Tote', '3 500 ₽')">♡</button></div>
+    <div class="info"><div class="brand">STÜSSY</div><div class="type">Tote Bag</div><div class="price">от 3 500 ₽</div><div class="views-counter" id="views-stussy-tote">👁 0</div></div>
+</div>
+
+<!-- КУРТКИ -->
+<div class="item" data-id="arcteryx-beta" data-category="jackets" data-brand="arcteryx" data-price="42000" data-size="S,M,L" data-search="arcteryx beta lt куртка гортекс" onclick="openModal('Arc\'teryx Beta LT', 'Мембранная куртка', 'Легендарная гортексовская куртка. Водонепроницаемая, дышащая.', '42 000 ₽'); addToHistory('Arc\'teryx Beta LT', '42 000 ₽'); countView('arcteryx-beta');">
+    <div class="photo"><span class="badge-hit">ХИТ</span><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Arc\'teryx Beta LT', '42 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">ARC'TERYX</div><div class="type">Beta LT</div><div class="price">от 42 000 ₽</div><div class="views-counter" id="views-arcteryx-beta">👁 0</div></div>
+</div>
+
+<div class="item" data-id="carhartt-detroit" data-category="jackets" data-brand="carhartt" data-price="16000" data-size="M,L,XL" data-search="carhartt wip detroit куртка" onclick="openModal('Carhartt WIP Detroit', 'Рабочая куртка', 'Знаменитая детройтская куртка. Плотный хлопок, воротник из вельвета.', '16 000 ₽'); addToHistory('Carhartt WIP Detroit', '16 000 ₽'); countView('carhartt-detroit');">
+    <div class="photo"><span class="camera-icon">📷</span><button class="fav-btn" onclick="event.stopPropagation(); toggleFav(this, 'Carhartt WIP Detroit', '16 000 ₽')">♡</button></div>
+    <div class="info"><div class="brand">CARHARTT WIP</div><div class="type">Detroit Jacket</div><div class="price">от 16 000 ₽</div><div class="views-counter" id="views-carhartt-detroit">👁 0</div></div>
+</div>
+            <div class="no-results" id="noResults">
+                ✕ Ничего не найдено. Попробуйте изменить фильтры или поисковый запрос.
+            </div>
+<!-- ИСТОРИЯ ПРОСМОТРОВ -->
+<div class="history-section" id="historySection" style="display:none;">
+    <div class="history-title">— Вы недавно смотрели —</div>
+    <div class="history-items" id="historyItems"></div>
+</div>
+        </div>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <div class="footer">
+        <p>📦 ДОСТАВКА ИЗ РOССИИ: СДЭК / ПОЧТА РОССИИ / АВИТО ДОСТАВКА</p>
+        <p>💬 ДЛЯ ЗАКАЗА: <a href="https://t.me/DikarskiyStore">TELEGRAM</a> | <a href="https://www.avito.ru/brands/ddf3fd53c799ed565a706783601779fa">АВИТО</a></p>
+        <p style="margin-top:8px;">© Dikarskiy Store — ВСЕ ВЕЩИ ПРОХОДЯТ ПРОВЕРКУ</p>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ТОВАРА -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">✕</span>
+            <div class="modal-photo"><span style="font-size:50px; opacity:0.3;">📷</span></div>
+            <h2 id="modalTitle">Asics Kayano 14</h2>
+            <div class="modal-type" id="modalType">Кроссовки</div>
+            <div class="modal-desc" id="modalDesc">Описание товара.</div>
+            <div class="modal-price" id="modalPrice">14 000 ₽</div>
+
+         
+            <!-- Кнопки "Поделиться" и "В избранное" -->
+<div class="modal-actions-row">
+    <button class="modal-share-btn" onclick="shareProduct()">📤 Поделиться</button>
+    <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavFromModal()">♡ В избранное</button>
+</div>
+            <a href="https://t.me/DikarskiyStoreBot" target="_blank" class="order-btn">🛒 ЗАКАЗАТЬ В TELEGRAM</a>
+        </div>
+    </div>
+  <script>
+   // ====================
+// ПАНЕЛЬ ФИЛЬТРОВ
+// ====================
+function openPanel() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+}
+
+function closePanel() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+}
+
+// ====================
+// ТЁМНАЯ ТЕМА
+// ====================
+let darkMode = localStorage.getItem('dikarskiy_dark') === 'true';
+
+function applyTheme() {
+    if (darkMode) {
+        document.body.classList.add('dark');
+        document.getElementById('themeIcon').textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark');
+        document.getElementById('themeIcon').textContent = '🌙';
+    }
+}
+
+function toggleTheme() {
+    darkMode = !darkMode;
+    localStorage.setItem('dikarskiy_dark', darkMode);
+    applyTheme();
+}
+
+applyTheme();
+
+// ====================
+// МОДАЛЬНОЕ ОКНО ТОВАРА
+// ====================
+let currentModalProduct = { title: '', price: '' };
+
+function openModal(title, type, desc, price) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalType').innerText = type;
+    document.getElementById('modalDesc').innerText = desc;
+    document.getElementById('modalPrice').innerText = price;
+    document.getElementById('modal').classList.add('active');
+
+    currentModalProduct = { title, price };
+
+    const favBtn = document.getElementById('modalFavBtn');
+    if (favBtn) {
+        const isFav = favorites.find(f => f.title === title);
+        if (isFav) {
+            favBtn.classList.add('liked');
+            favBtn.textContent = '♥ В избранном';
+        } else {
+            favBtn.classList.remove('liked');
+            favBtn.textContent = '♡ В избранное';
+        }
+    }
+
+    // Кнопка заказа — напрямую тебе
+    const orderBtn = document.querySelector('.modal-content .order-btn');
+    if (orderBtn) {
+        orderBtn.href = '#';
+        orderBtn.removeAttribute('target');
+        orderBtn.onclick = function(e) {
+            e.preventDefault();
+            orderDirect(title, price);
+        };
+    }
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+// ====================
+// ФИЛЬТРЫ И ПОИСК
+// ====================
+function applyFilters() {
+    const items = document.querySelectorAll('.item');
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cats = [...document.querySelectorAll('.filter-category:checked')].map(cb => cb.value);
+    const brands = [...document.querySelectorAll('.filter-brand:checked')].map(cb => cb.value);
+    const sizes = [...document.querySelectorAll('.filter-size:checked')].map(cb => cb.value);
+
+    const sortRadio = document.querySelector('input[name="sortPrice"]:checked');
+    const sortValue = sortRadio ? sortRadio.value : 'default';
+
+    const noResults = document.getElementById('noResults');
+    let visibleItems = [];
+
+    items.forEach(item => {
+        const c = item.getAttribute('data-category');
+        const b = item.getAttribute('data-brand');
+        const sizeAttr = item.getAttribute('data-size') || '';
+        const itemSizes = sizeAttr.split(',').map(s => s.trim());
+        const s = item.getAttribute('data-search').toLowerCase();
+
+        let sizeMatch = sizes.length === 0 || sizes.some(sz => itemSizes.includes(sz));
+
+        const ok = (cats.length === 0 || cats.includes(c)) &&
+                   (brands.length === 0 || brands.includes(b)) &&
+                   (q === '' || s.includes(q)) &&
+                   sizeMatch;
+
+        item.classList.add('hidden');
+
+        if (ok) {
+            visibleItems.push(item);
+        }
+    });
+
+    if (sortValue === 'cheap') {
+        visibleItems.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute('data-price'));
+            const priceB = parseInt(b.getAttribute('data-price'));
+            return priceA - priceB;
+        });
+    } else if (sortValue === 'expensive') {
+        visibleItems.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute('data-price'));
+            const priceB = parseInt(b.getAttribute('data-price'));
+            return priceB - priceA;
+        });
+    }
+
+    const catalog = document.getElementById('catalog');
+    visibleItems.forEach(item => {
+        item.classList.remove('hidden');
+        catalog.appendChild(item);
+    });
+
+    if (visibleItems.length === 0) {
+        noResults.classList.add('show');
+    } else {
+        noResults.classList.remove('show');
+    }
+}
+
+function resetFilters() {
+    document.querySelectorAll('.filter-category, .filter-brand, .filter-size').forEach(cb => cb.checked = false);
+    document.getElementById('searchInput').value = '';
+    const defaultRadio = document.querySelector('input[name="sortPrice"][value="default"]');
+    if (defaultRadio) defaultRadio.checked = true;
+    applyFilters();
+    closePanel();
+}
+
+// ====================
+// ИЗБРАННОЕ И КОРЗИНА
+// ====================
+
+let favorites = JSON.parse(localStorage.getItem('dikarskiy_fav') || '[]');
+let cart = JSON.parse(localStorage.getItem('dikarskiy_cart') || '[]');
+
+function updateBadges() {
+    const favBadge = document.getElementById('favBadge');
+    const cartBadge = document.getElementById('cartBadge');
+
+    if (favorites.length > 0) {
+        favBadge.textContent = favorites.length;
+        favBadge.classList.add('active');
+    } else {
+        favBadge.classList.remove('active');
+    }
+
+    if (cart.length > 0) {
+        cartBadge.textContent = cart.length;
+        cartBadge.classList.add('active');
+    } else {
+        cartBadge.classList.remove('active');
+    }
+}
+
+function toggleFav(btn, title, price) {
+    event.stopPropagation();
+    const index = favorites.findIndex(item => item.title === title);
+
+    if (index > -1) {
+        favorites.splice(index, 1);
+        btn.classList.remove('liked');
+        btn.textContent = '♡';
+    } else {
+        favorites.push({ title, price });
+        btn.classList.add('liked');
+        btn.textContent = '♥';
+    }
+
+    localStorage.setItem('dikarskiy_fav', JSON.stringify(favorites));
+    updateBadges();
+}
+
+function toggleFavFromModal() {
+    const btn = document.getElementById('modalFavBtn');
+    const title = currentModalProduct.title;
+    const price = currentModalProduct.price;
+    const index = favorites.findIndex(item => item.title === title);
+
+    if (index > -1) {
+        favorites.splice(index, 1);
+        btn.classList.remove('liked');
+        btn.textContent = '♡ В избранное';
+    } else {
+        favorites.push({ title, price });
+        btn.classList.add('liked');
+        btn.textContent = '♥ В избранном';
+    }
+
+    localStorage.setItem('dikarskiy_fav', JSON.stringify(favorites));
+    updateBadges();
+    updateAllFavButtons();
+}
+
+function updateAllFavButtons() {
+    document.querySelectorAll('.fav-btn').forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick');
+        if (!onclickAttr) return;
+        const match = onclickAttr.match(/toggleFav\(this,\s*'(.+?)',\s*'(.+?)'\)/);
+        if (match && favorites.find(f => f.title === match[1])) {
+            btn.classList.add('liked');
+            btn.textContent = '♥';
+        } else if (match) {
+            btn.classList.remove('liked');
+            btn.textContent = '♡';
+        }
+    });
+}
+
+function openFavorites() {
+    if (favorites.length === 0) {
+        alert('В избранном пока ничего нет');
+        return;
+    }
+    
+    let list = '🧾 ЧЕК-ЛИСТ ЗАКАЗА\n\n';
+    let total = 0;
+    
+    favorites.forEach((item, i) => {
+        list += (i + 1) + '. ' + item.title + ' — ' + item.price + '\n';
+        const priceNum = parseInt(item.price.replace(/[^\d]/g, ''));
+        if (!isNaN(priceNum)) total += priceNum;
+    });
+    
+    list += '\n📦 Всего товаров: ' + favorites.length;
+    list += '\n💰 Примерная сумма: ' + total.toLocaleString() + ' ₽';
+    list += '\n\n👇 Выбери действие:';
+    
+    const action = confirm(
+        list + '\n\nНажми "ОК" — отправить заказ в Telegram\nНажми "Отмена" — остаться в избранном'
+    );
+    
+    if (action) {
+        sendFavoriteOrder();
+    }
+}
+
+function sendFavoriteOrder() {
+    let message = '🛒 Новый заказ!\n\n';
+    let total = 0;
+    
+    favorites.forEach((item, i) => {
+        message += (i + 1) + '. ' + item.title + ' — ' + item.price + '\n';
+        const priceNum = parseInt(item.price.replace(/[^\d]/g, ''));
+        if (!isNaN(priceNum)) total += priceNum;
+    });
+    
+    message += '\n📦 Всего: ' + favorites.length + ' товаров';
+    message += '\n💰 Сумма: ~' + total.toLocaleString() + ' ₽';
+    message += '\n\nПрошу подтвердить наличие и сроки.';
+    
+    const url = 'https://t.me/' + YOUR_TELEGRAM + '?text=' + encodeURIComponent(message);
+    window.open(url, '_blank');
+}
+// ====================
+// ПРЯМОЙ ЗАКАЗ ТЕБЕ В ЛИЧКУ
+// ====================
+const YOUR_TELEGRAM = 'mrazota_tgk'; // ← ЗАМЕНИ НА СВОЙ БЕЗ @
+
+function orderDirect(title, price) {
+    const size = prompt('Какой размер вас интересует? (S, M, L, XL)\nИли нажмите Отмена, если не знаете.');
+    const sizeText = size ? 'Размер: ' + size : 'Размер не указан';
+    
+    const message = encodeURIComponent(
+        '🛒 Новый заказ!\n\n' +
+        'Товар: ' + title + '\n' +
+        'Цена: ' + price + '\n' +
+        sizeText
+    );
+    
+    const url = 'https://t.me/' + YOUR_TELEGRAM + '?text=' + message;
+    window.open(url, '_blank');
+}
+
+function shareProduct() {
+    const url = window.location.href;
+    const title = currentModalProduct.title;
+    const price = currentModalProduct.price;
+    const text = title + ' — ' + price + '\n\nСмотреть: ' + url;
+
+    if (navigator.share) {
+        navigator.share({ title, text, url });
+    } else {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('Ссылка скопирована! Отправь другу.');
+        }).catch(function() {
+            alert('Скопируйте вручную: ' + text);
+        });
+    }
+}
+
+// ====================
+// ИСТОРИЯ ПРОСМОТРОВ
+// ====================
+let viewHistory = JSON.parse(localStorage.getItem('dikarskiy_history') || '[]');
+
+function addToHistory(title, price) {
+    viewHistory = viewHistory.filter(item => item.title !== title);
+    viewHistory.unshift({ title, price });
+    if (viewHistory.length > 10) viewHistory.pop();
+    localStorage.setItem('dikarskiy_history', JSON.stringify(viewHistory));
+}
+
+function openHistory() {
+    const modal = document.getElementById('historyModal');
+    const list = document.getElementById('historyList');
+    
+    if (!modal || !list) return;
+
+    list.innerHTML = '';
+
+    if (viewHistory.length === 0) {
+        list.innerHTML = '<div class="history-empty">Вы пока ничего не смотрели</div>';
+    } else {
+        viewHistory.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'history-row';
+            row.innerHTML = '<div class="history-info"><div class="history-name">' + item.title + '</div><div class="history-price">' + item.price + '</div></div><div class="history-arrow">→</div>';
+            row.onclick = function() {
+                closeHistory();
+                const searchTitle = item.title.replace(/'/g, "\\'");
+                const targetItem = document.querySelector('.item[onclick*="' + searchTitle + '"]');
+                if (targetItem) {
+                    targetItem.scrollIntoView({ behavior: 'smooth',block: 'center' });
+                    setTimeout(function() { targetItem.click(); }, 400);
+                }
+            };
+            list.appendChild(row);
+        });
+    }
+
+    modal.style.display = 'flex';
+    modal.classList.add('active');
+}
+
+function closeHistory() {
+    const modal = document.getElementById('historyModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    setTimeout(function() { modal.style.display = 'none'; }, 300);
+}
+
+function clearHistory() {
+    viewHistory = [];
+    localStorage.setItem('dikarskiy_history', '[]');
+    openHistory();
+}
+
+const historyModalEl = document.getElementById('historyModal');
+if (historyModalEl) {
+    historyModalEl.addEventListener('click', function(e) {
+        if (e.target === this) closeHistory();
+    });
+}
+
+// ====================
+// СЧЁТЧИК ПРОСМОТРОВ
+// ====================
+let viewsData = JSON.parse(localStorage.getItem('dikarskiy_views') || '{}');
+
+function countView(productId) {
+    if (!productId) return;
+    
+    if (!viewsData[productId]) {
+        viewsData[productId] = 0;
+    }
+    viewsData[productId]++;
+    localStorage.setItem('dikarskiy_views', JSON.stringify(viewsData));
+    
+    const counterEl = document.getElementById('views-' + productId);
+    if (counterEl) {
+        counterEl.textContent = '👁 ' + viewsData[productId];
+    }
+}
+
+function loadAllViewCounters() {
+    Object.keys(viewsData).forEach(function(id) {
+        const counterEl = document.getElementById('views-' + id);
+        if (counterEl && viewsData[id]) {
+            counterEl.textContent = '👁 ' + viewsData[id];
+        }
+    });
+}
+
+// ====================
+// КНОПКА НАВЕРХ
+// ====================
+const scrollBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', function() {
+    if (scrollBtn) {
+        if (window.scrollY > 400) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    }
+});
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ====================
+// ЗАПУСК
+// ====================
+updateBadges();
+updateAllFavButtons();
+loadAllViewCounters();
+// ====================
+// ПЕРЕКЛЮЧЕНИЕ ТИПА РАЗМЕРОВ
+// ====================
+let currentSizeType = 'shoes'; // обувь по умолчанию
+
+function switchSizeType(type) {
+    currentSizeType = type;
+    const container = document.getElementById('sizeCheckboxes');
+    const btnShoes = document.getElementById('sizeTypeShoes');
+    const btnClothes = document.getElementById('sizeTypeClothes');
+
+    // Переключаем активную кнопку
+    btnShoes.classList.toggle('active', type === 'shoes');
+    btnClothes.classList.toggle('active', type === 'clothes');
+
+    // Сбрасываем выбранные размеры
+    document.querySelectorAll('.filter-size').forEach(cb => cb.checked = false);
+
+    // Меняем набор размеров
+    if (type === 'shoes') {
+        container.innerHTML = `
+            <label><input type="checkbox" class="filter-size" value="37" onchange="applyFilters()"> 37</label>
+            <label><input type="checkbox" class="filter-size" value="38" onchange="applyFilters()"> 38</label>
+            <label><input type="checkbox" class="filter-size" value="39" onchange="applyFilters()"> 39</label>
+            <label><input type="checkbox" class="filter-size" value="40" onchange="applyFilters()"> 40</label>
+            <label><input type="checkbox" class="filter-size" value="41" onchange="applyFilters()"> 41</label>
+            <label><input type="checkbox" class="filter-size" value="42" onchange="applyFilters()"> 42</label>
+            <label><input type="checkbox" class="filter-size" value="43" onchange="applyFilters()"> 43</label>
+            <label><input type="checkbox" class="filter-size" value="44" onchange="applyFilters()"> 44</label>
+            <label><input type="checkbox" class="filter-size" value="45" onchange="applyFilters()"> 45</label>
+        `;
+    } else {
+        container.innerHTML = `
+            <label><input type="checkbox" class="filter-size" value="S" onchange="applyFilters()"> S</label>
+            <label><input type="checkbox" class="filter-size" value="M" onchange="applyFilters()"> M</label>
+            <label><input type="checkbox" class="filter-size" value="L" onchange="applyFilters()"> L</label>
+            <label><input type="checkbox" class="filter-size" value="XL" onchange="applyFilters()"> XL</label>
+        `;
+    }
+
+    applyFilters();
+}
+function orderDirect(title, price) {
+    let sizePrompt;
+    // Определяем тип товара по названию (обувь или одежда)
+    if (currentModalProduct.title.toLowerCase().includes('asics') || 
+        currentModalProduct.title.toLowerCase().includes('salomon') || 
+        currentModalProduct.title.toLowerCase().includes('new balance')) {
+        sizePrompt = prompt('Выберите размер обуви:\n37, 38, 39, 40, 41, 42, 43, 44, 45\n\nИли нажмите Отмена, если не знаете.');
+    } else {
+        sizePrompt = prompt('Выберите размер:\nS, M, L, XL\n\nИли нажмите Отмена, если не знаете.');
+    }
+    
+    const sizeText = sizePrompt ? 'Размер: ' + sizePrompt : 'Размер не указан';
+    
+    const message = encodeURIComponent(
+        '🛒 Новый заказ!\n\n' +
+        'Товар: ' + title + '\n' +
+        'Цена: ' + price + '\n' +
+        sizeText
+    );
+    
+    const url = 'https://t.me/' + YOUR_TELEGRAM + '?text=' + message;
+    window.open(url, '_blank');
+}
+function updateBadges() {
+    const favBadge = document.getElementById('favBadge');
+
+    if (favorites.length > 0) {
+        favBadge.textContent = favorites.length;
+        favBadge.classList.add('active');
+    } else {
+        favBadge.classList.remove('active');
+    }
+}
+  </script> 
+    <!-- МОДАЛЬНОЕ ОКНО ИСТОРИИ -->
+<div class="history-modal" id="historyModal">
+    <div class="history-modal-content">
+        <span class="close" onclick="closeHistory()">✕</span>
+       <button class="header-action-btn" onclick="openHistory()" title="История">
+    🕐 
+</button>
+        <div class="history-list" id="historyList"></div>
+        <button class="history-clear-btn" onclick="clearHistory()">✕ Очистить историю</button>
+    </div>
+</div>
+</body>
+</html>
