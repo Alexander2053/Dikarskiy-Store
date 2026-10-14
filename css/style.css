@@ -5,16 +5,16 @@
 }
 
 body {
-    background-color: #e0e0e0;
+    background-color: #FFFFFF;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #270008;
+    color: #0A0A0A;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.4;
 }
 
 /* ШАПКА */
 .header {
-    background-color: #270008;
+    background-color: #0A0A0A;
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,6 @@ body {
     min-height: 250px;
 }
 
-/* Кнопка фильтра — над аватаркой */
 .header-top-row {
     position: absolute;
     top: 12px;
@@ -48,7 +47,7 @@ body {
     background-color: rgba(255, 255, 255, 0.35);
 }
 
-/* АВАТАРКА — ЦАРЬ */
+/* АВАТАРКА */
 .header-avatar {
     width: 160px;
     height: 160px;
@@ -57,7 +56,7 @@ body {
     object-fit: cover;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
     margin-bottom: 16px;
-    background-color: #F9EBE8;
+    background-color: #F5F5F5;
 }
 
 /* Название */
@@ -72,6 +71,7 @@ body {
     border-radius: 30px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    color: #FFFFFF;
 }
 
 /* Подпись */
@@ -81,25 +81,26 @@ body {
     letter-spacing: 2px;
     opacity: 0.9;
     text-align: center;
+    color: #FFFFFF;
 }
 
 /* ПОИСК */
 .search-bar {
     text-align: center;
     padding: 14px 16px;
-    background-color: #F9EBE8;
-    border-bottom: 2px solid #270008;
+    background-color: #F5F5F5;
+    border-bottom: 2px solid #0A0A0A;
 }
 
 .search-bar input {
     width: 100%;
     max-width: 500px;
     padding: 14px 16px;
-    border: 2px solid #270008;
+    border: 2px solid #0A0A0A;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     text-align: center;
-    color: #270008;
+    color: #0A0A0A;
     background-color: #FFFFFF;
     outline: none;
     border-radius: 0;
@@ -107,22 +108,23 @@ body {
 }
 
 .search-bar input::placeholder {
-    color: #270008;
+    color: #0A0A0A;
     opacity: 0.45;
     font-size: 14px;
 }
 
 /* ЗАГОЛОВОК КАТАЛОГА */
 .section-title {
-    text-align: center;
-    padding: 15px 0 10px;
+    text-align: left;
+    padding: 8px 4px 12px;
     font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #270008;
+    border-bottom: 1px solid #0A0A0A;
+    margin-bottom: 12px;
+    color: #0A0A0A;
 }
-
 
 /* ОВЕРЛЕЙ */
 .overlay {
@@ -149,8 +151,8 @@ body {
     max-width: 320px;
     height: 100%;
     height: 100dvh;
-    background-color: #e0e0e0;
-    border-right: 3px solid #270008;
+    background-color: #FFFFFF;
+    border-right: 3px solid #0A0A0A;
     z-index: 999;
     padding: 25px 18px 18px;
     transition: left 0.3s ease;
@@ -168,7 +170,7 @@ body {
     right: 14px;
     font-size: 24px;
     cursor: pointer;
-    color: #270008;
+    color: #0A0A0A;
     font-weight: bold;
     padding: 5px;
     z-index: 5;
@@ -181,8 +183,8 @@ body {
     text-transform: uppercase;
     margin-bottom: 18px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #270008;
-    color: #270008;
+    border-bottom: 2px solid #0A0A0A;
+    color: #0A0A0A;
 }
 
 .filter-group {
@@ -195,7 +197,7 @@ body {
     letter-spacing: 1px;
     margin-bottom: 8px;
     text-transform: uppercase;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .filter-group label {
@@ -204,13 +206,12 @@ body {
     padding: 7px 0;
     cursor: pointer;
     letter-spacing: 0.3px;
-    color: #270008;
+    color: #0A0A0A;
     -webkit-tap-highlight-color: transparent;
 }
-
 .filter-group input[type="checkbox"] {
     margin-right: 10px;
-    accent-color: #270008;
+    accent-color: #0A0A0A;
     width: 18px;
     height: 18px;
     vertical-align: middle;
@@ -220,9 +221,9 @@ body {
     display: block;
     width: 100%;
     padding: 14px;
-    background-color: #e0e0e0;
-    border: 2px solid #270008;
-    color: #270008;
+    background-color: #FFFFFF;
+    border: 2px solid #0A0A0A;
+    color: #0A0A0A;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -235,8 +236,31 @@ body {
 }
 
 .reset-btn:active {
-    background-color: #270008;
-    color: #e0e0e0;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+.apply-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #0A0A0A;
+    border: 2px solid #0A0A0A;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-bottom: 8px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.apply-btn:active {
+    background-color: #FFFFFF;
+    color: #0A0A0A;
 }
 
 /* ОСНОВНОЙ КОНТЕЙНЕР */
@@ -244,17 +268,6 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 12px;
-}
- .section-title {
-    text-align: left;
-    padding: 8px 4px 12px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: 1px solid #270008;
-    margin-bottom: 12px;
-    color: #270008;
 }
 
 /* КАТАЛОГ — СЕТКА */
@@ -265,8 +278,8 @@ body {
 }
 
 .item {
-    background-color: #e0e0e0;
-    border: 1px solid #270008;
+    background-color: #F5F5F5;
+    border: 1px solid #0A0A0A;
     text-align: center;
     cursor: pointer;
     transition: 0.2s;
@@ -276,22 +289,23 @@ body {
 }
 
 .item:active {
-    background-color: #270008;
-    color: #e0e0e0;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
 }
 
 .item:active .brand,
 .item:active .type,
-.item:active .price {
-    color: #e0e0e0;
+.item:active .price,
+.item:active .views-counter {
+    color: #FFFFFF;
 }
 
 /* МЕСТО ПОД ФОТО */
 .item .photo {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-color: #e0e0e0;
-    border-bottom: 1px solid #270008;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #0A0A0A;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,7 +343,7 @@ body {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     line-height: 1.3;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .item .type {
@@ -338,7 +352,7 @@ body {
     opacity: 0.75;
     margin-top: 4px;
     letter-spacing: 0.3px;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .item .price {
@@ -346,7 +360,7 @@ body {
     font-weight: 600;
     margin-top: 8px;
     letter-spacing: 0.3px;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .item.hidden {
@@ -362,11 +376,81 @@ body {
     opacity: 0.6;
     display: none;
     grid-column: 1 / -1;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .no-results.show {
     display: block;
+}
+
+/* ПЛАШКИ "ХИТ" И "НОВИНКА" */
+.item .badge-hit,
+.item .badge-new {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    padding: 3px 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.item .badge-hit {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+.item .badge-new {
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    border: 1px solid #0A0A0A;
+}
+
+/* ИКОНКА ИЗБРАННОГО НА КАРТОЧКЕ */
+.fav-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid #0A0A0A;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    line-height: 1;
+}
+
+.fav-btn:active {
+    transform: scale(1.2);
+}
+
+.fav-btn.liked {
+    background-color: #0A0A0A;
+    border-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+/* СЧЁТЧИК ПРОСМОТРОВ */
+.views-counter {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    margin-top: 3px;
+    color: #0A0A0A;
+    text-align: center;
 }
 
 /* МОДАЛЬНОЕ ОКНО ТОВАРА */
@@ -390,8 +474,8 @@ body {
 }
 
 .modal-content {
-    background-color: #e0e0e0;
-    border: 3px solid #270008;
+    background-color: #FFFFFF;
+    border: 3px solid #0A0A0A;
     padding: 20px 16px;
     max-width: 400px;
     width: 100%;
@@ -401,7 +485,7 @@ body {
     max-height: 90dvh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    color: #270008;
+    color: #0A0A0A;
 }
 
 .modal-content .close {
@@ -410,7 +494,7 @@ body {
     right: 12px;
     font-size: 24px;
     cursor: pointer;
-    color: #270008;
+    color: #0A0A0A;
     font-weight: bold;
     padding: 5px;
     z-index: 5;
@@ -419,8 +503,8 @@ body {
 .modal-content .modal-photo {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-color: #e0e0e0;
-    border: 1px solid #270008;
+    background-color: #F5F5F5;
+    border: 1px solid #0A0A0A;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -457,8 +541,8 @@ body {
     line-height: 1.6;
     margin-bottom: 18px;
     text-align: left;
-    border-top: 1px solid #270008;
-    border-bottom: 1px solid #270008;
+    border-top: 1px solid #0A0A0A;
+    border-bottom: 1px solid #0A0A0A;
     padding: 14px 0;
 }
 
@@ -467,11 +551,12 @@ body {
     font-weight: 700;
     margin-bottom: 20px;
 }
- .modal-content .order-btn {
+
+.modal-content .order-btn {
     display: block;
     width: 100%;
-    background-color: #270008;
-    color: #e0e0e0;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
     text-decoration: none;
     padding: 16px;
     font-size: 16px;
@@ -486,15 +571,50 @@ body {
 }
 
 .modal-content .order-btn:active {
-    background-color: #e0e0e0;
-    color: #270008;
-    outline: 2px solid #270008;
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    outline: 2px solid #0A0A0A;
 }
 
+/* КНОПКИ "ПОДЕЛИТЬСЯ" И "В ИЗБРАННОЕ" */
+.modal-actions-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.modal-share-btn,
+.modal-fav-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #0A0A0A;
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center;
+}
+
+.modal-share-btn:active,
+.modal-fav-btn:active {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+.modal-fav-btn.liked {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
 /* ПОДВАЛ */
 .footer {
-    background-color: #270008;
-    color: #e0e0e0;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
     text-align: center;
     padding: 20px 14px;
     font-size: 13px;
@@ -505,134 +625,11 @@ body {
 }
 
 .footer a {
-    color: #e0e0e0;
+    color: #FFFFFF;
     text-decoration: underline;
 }
 
-/* ТЕЛЕФОН: две колонки на маленьких экранах */
-@media (max-width: 380px) {
-    .catalog {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-    .item .brand {
-        font-size: 12px;
-    }
-    .item .type {
-        font-size: 11px;
-    }
-    .item .price {
-        font-size: 14px;
-    }
-    .header h1 {
-        font-size: 17px;
-        letter-spacing: 1px;
-    }
-    .filter-icon {
-        font-size: 24px;
-    }
-}
-
-@media (min-width: 381px) and (max-width: 480px) {
-    .catalog {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .header h1 {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .catalog {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-}
-
-@media (min-width: 769px) {
-    .catalog {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-    }
-    .item .photo .camera-icon {
-        font-size: 44px;
-    }
-}
-/* КНОПКА НАВЕРХ */
-.scroll-to-top {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    width: 46px;
-    height: 46px;
-    background-color: #270008;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1500;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    line-height: 1;
-}
-
-.scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.scroll-to-top:active {
-    background-color: #FFFFFF;
-    color: #270008;
-    border-color: #270008;
-}
-/* ==================== */
-/* СОРТИРОВКА ПО ЦЕНЕ */
-/* ==================== */
-.sort-group {
-    margin-bottom: 22px;
-}
-
-.sort-group .filter-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    color: #270008;
-}
-
-.sort-group label {
-    display: block;
-    font-size: 16px;
-    padding: 7px 0;
-    cursor: pointer;
-    letter-spacing: 0.3px;
-    color: #270008;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.sort-group input[type="radio"] {
-    margin-right: 10px;
-    accent-color: #270008;
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-}
-/* ==================== */
 /* ИКОНКИ В ШАПКЕ */
-/* ==================== */
 .header-actions {
     position: absolute;
     top: 12px;
@@ -671,360 +668,127 @@ body {
     top: -6px;
     right: -6px;
     background-color: #FFFFFF;
-    color: #270008;
+    color: #0A0A0A;
     font-size: 10px;
     font-weight: 700;
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    display: none;
 }
 
 .badge.active {
     display: flex;
 }
 
-/* ==================== */
-/* ИКОНКА ИЗБРАННОГО НА КАРТОЧКЕ */
-/* ==================== */
-.item .photo {
-    position: relative;
+/* СОРТИРОВКА ПО ЦЕНЕ */
+.sort-group {
+    margin-bottom: 22px;
 }
 
-.fav-btn {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 28px;
-    height: 28px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px solid #270008;
-    border-radius: 50%;
+.sort-group .filter-title {
     font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: #0A0A0A;
+}
+
+.sort-group label {
+    display: block;
+    font-size: 16px;
+    padding: 7px 0;
     cursor: pointer;
+    letter-spacing: 0.3px;
+    color: #0A0A0A;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sort-group input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #0A0A0A;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+/* ПЕРЕКЛЮЧАТЕЛЬ ТИПА РАЗМЕРА */
+.size-type-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+}
+
+.size-type-btn {
+    flex: 1;
+    padding: 8px 4px;
+    background-color: #FFFFFF;
+    border: 2px solid #0A0A0A;
+    color: #0A0A0A;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    text-transform: uppercase;
+}
+
+.size-type-btn:first-child {
+    border-right: none;
+}
+
+.size-type-btn.active {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+/* КНОПКА НАВЕРХ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    font-size: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 5;
-    transition: 0.2s;
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
     line-height: 1;
 }
 
-.fav-btn:active {
-    transform: scale(1.2);
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.fav-btn.liked {
-    background-color: #270008;
-    border-color: #270008;
-}
-
-/* ==================== */
-/* КНОПКА ПОДЕЛИТЬСЯ В МОДАЛЬНОМ ОКНЕ */
-/* ==================== */
-.modal-actions-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 18px;
-}
-
-.modal-share-btn,
-.modal-fav-btn {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #270008;
+.scroll-to-top:active {
     background-color: #FFFFFF;
-    color: #270008;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-transform: uppercase;
-    -webkit-tap-highlight-color: transparent;
-    text-align: center;
+    color: #0A0A0A;
+    border-color: #0A0A0A;
 }
 
-.modal-share-btn:active,
-.modal-fav-btn:active {
-    background-color: #270008;
-    color: #FFFFFF;
-}
-
-.modal-fav-btn.liked {
-    background-color: #270008;
-    color: #FFFFFF;
-}
-.apply-btn {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    background-color: #270008;
-    border: 2px solid #270008;
-    color: #FFFFFF;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.3s;
-    margin-bottom: 8px;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.apply-btn:active {
-    background-color: #FFFFFF;
-    color: #270008;
-}
-/* ==================== */
-/* ПЛАШКИ "ХИТ" И "НОВИНКА" */
-/* ==================== */
-.item .badge-hit,
-.item .badge-new {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    padding: 3px 8px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 0;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.item .badge-hit {
-    background-color: #5C1624;
-    color: #FFFFFF;
-}
-
-.item .badge-new {
-    background-color: #FFFFFF;
-    color: #5C1624;
-    border: 1px solid #5C1624;
-}
-
-/* ==================== */
-/* ТЁМНАЯ ТЕМА */
-/* ==================== */
-body.dark {
-    background-color: #1A0A0F;
-    color: #F0D5DC;
-}
-
-body.dark .header {
-    background-color: #3D0F1A;
-}
-
-body.dark .search-bar {
-    background-color: #2B1017;
-    border-bottom-color: #6B2D3A;
-}
-
-body.dark .search-bar input {
-    background-color: #1A0A0F;
-    border-color: #6B2D3A;
-    color: #F0D5DC;
-}
-
-body.dark .search-bar input::placeholder {
-    color: #F0D5DC;
-    opacity: 0.5;
-}
-
-body.dark .sidebar {
-    background-color: #1A0A0F;
-    border-right-color: #6B2D3A;
-}
-
-body.dark .sidebar h3,
-body.dark .sidebar .filter-title,
-body.dark .sidebar label,
-body.dark .sidebar .close-panel {
-    color: #F0D5DC;
-}
-
-body.dark .sidebar h3 {
-    border-bottom-color: #6B2D3A;
-}
-
-body.dark .sidebar input[type="checkbox"],
-body.dark .sidebar input[type="radio"] {
-    accent-color: #8B3A4A;
-}
-
-body.dark .reset-btn,
-body.dark .apply-btn {
-    border-color: #6B2D3A;
-}
-
-body.dark .reset-btn {
-    background-color: #1A0A0F;
-    color: #F0D5DC;
-}
-
-body.dark .apply-btn {
-    background-color: #8B3A4A;
-    border-color: #8B3A4A;
-}
-
-body.dark .section-title {
-    color: #F0D5DC;
-    border-bottom-color: #6B2D3A;
-}
-
-body.dark .item {
-    background-color: #2B1017;
-    border-color: #6B2D3A;
-}
-
-body.dark .item .photo {
-    background-color: #1A0A0F;
-    border-bottom-color: #6B2D3A;
-}
-
-body.dark .item .brand,
-body.dark .item .type,
-body.dark .item .price {
-    color: #F0D5DC;
-}
-
-body.dark .item:active {
-    background-color: #8B3A4A;
-    color: #FFFFFF;
-}
-
-body.dark .item:active .brand,
-body.dark .item:active .type,
-body.dark .item:active .price {
-    color: #FFFFFF;
-}
-
-body.dark .fav-btn {
-    background-color: rgba(26, 10, 15, 0.85);
-    border-color: #6B2D3A;
-    color: #F0D5DC;
-}
-
-body.dark .fav-btn.liked {
-    background-color: #8B3A4A;
-    border-color: #8B3A4A;
-    color: #FFFFFF;
-}
-
-body.dark .modal-content {
-    background-color: #1A0A0F;
-    border-color: #6B2D3A;
-}
-
-body.dark .modal-content .close,
-body.dark .modal-content h2,
-body.dark .modal-content .modal-type,
-body.dark .modal-content .modal-desc,
-body.dark .modal-content .modal-price {
-    color: #F0D5DC;
-}
-
-body.dark .modal-content .modal-desc {
-    border-top-color: #6B2D3A;
-    border-bottom-color: #6B2D3A;
-}
-
-body.dark .modal-content .modal-photo {
-    background-color: #2B1017;
-    border-color: #6B2D3A;
-}
-
-body.dark .modal-content .order-btn {
-    background-color: #8B3A4A;
-}
-
-body.dark .modal-content .order-btn:active {
-    background-color: #1A0A0F;
-    color: #F0D5DC;
-    outline-color: #6B2D3A;
-}
-
-body.dark .modal-share-btn,
-body.dark .modal-fav-btn {
-    border-color: #6B2D3A;
-    background-color: #2B1017;
-    color: #F0D5DC;
-}
-
-body.dark .modal-share-btn:active,
-body.dark .modal-fav-btn:active {
-    background-color: #8B3A4A;
-    color: #FFFFFF;
-}
-
-body.dark .modal-fav-btn.liked {
-    background-color: #8B3A4A;
-    color: #FFFFFF;
-}
-
-body.dark .footer {
-    background-color: #3D0F1A;
-}
-
-body.dark .no-results {
-    color: #F0D5DC;
-}
-
-body.dark .scroll-to-top {
-    background-color: #8B3A4A;
-    border-color: #F0D5DC;
-}
-
-body.dark .scroll-to-top:active {
-    background-color: #1A0A0F;
-    color: #F0D5DC;
-    border-color: #8B3A4A;
-}
-
-body.dark .header-action-btn {
-    background-color: rgba(240, 213, 220, 0.15);
-    color: #F0D5DC;
-}
-
-body.dark .header-action-btn:active {
-    background-color: rgba(240, 213, 220, 0.3);
-}
-
-body.dark .badge {
-    background-color: #F0D5DC;
-    color: #3D0F1A;
-}
-
-body.dark .sort-group .filter-title {
-    color: #F0D5DC;
-}
-
-body.dark .sort-group label {
-    color: #F0D5DC;
-}
-
-body.dark .apply-btn {
-    background-color: #8B3A4A;
-}
-
-body.dark .apply-btn:active {
-    background-color: #1A0A0F;
-    color: #F0D5DC;
-}
-
-/* ==================== */
-/* ИСТОРИЯ ПРОСМОТРОВ — МОДАЛЬНОЕ ОКНО */
-/* ==================== */
+/* ИСТОРИЯ ПРОСМОТРОВ */
 .history-modal {
     display: none;
     position: fixed;
@@ -1045,8 +809,8 @@ body.dark .apply-btn:active {
 }
 
 .history-modal-content {
-    background-color: #FDF8F5;
-    border: 3px solid #5C1624;
+    background-color: #FFFFFF;
+    border: 3px solid #0A0A0A;
     padding: 20px 16px;
     max-width: 400px;
     width: 100%;
@@ -1056,26 +820,16 @@ body.dark .apply-btn:active {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-
-body.dark .history-modal-content {
-    background-color: #1A0A0F;
-    border-color: #6B2D3A;
-}
-
 .history-modal-content .close {
     position: absolute;
     top: 8px;
     right: 12px;
     font-size: 24px;
     cursor: pointer;
-    color: #5C1624;
+    color: #0A0A0A;
     font-weight: bold;
     padding: 5px;
     z-index: 5;
-}
-
-body.dark .history-modal-content .close {
-    color: #F0D5DC;
 }
 
 .history-modal-content h3 {
@@ -1083,16 +837,11 @@ body.dark .history-modal-content .close {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #5C1624;
+    color: #0A0A0A;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #5C1624;
+    border-bottom: 2px solid #0A0A0A;
     text-align: center;
-}
-
-body.dark .history-modal-content h3 {
-    color: #F0D5DC;
-    border-bottom-color: #6B2D3A;
 }
 
 .history-list {
@@ -1106,25 +855,16 @@ body.dark .history-modal-content h3 {
     align-items: center;
     justify-content: space-between;
     padding: 10px 12px;
-    background-color: #FFF5F5;
-    border: 1px solid #5C1624;
+    background-color: #F5F5F5;
+    border: 1px solid #0A0A0A;
     cursor: pointer;
     transition: 0.2s;
     -webkit-tap-highlight-color: transparent;
 }
 
-body.dark .history-row {
-    background-color: #2B1017;
-    border-color: #6B2D3A;
-}
-
 .history-row:active {
-    background-color: #5C1624;
+    background-color: #0A0A0A;
     color: #FFFFFF;
-}
-
-body.dark .history-row:active {
-    background-color: #8B3A4A;
 }
 
 .history-row .history-info {
@@ -1138,11 +878,7 @@ body.dark .history-row:active {
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #5C1624;
-}
-
-body.dark .history-row .history-name {
-    color: #F0D5DC;
+    color: #0A0A0A;
 }
 
 .history-row:active .history-name {
@@ -1152,11 +888,7 @@ body.dark .history-row .history-name {
 .history-row .history-price {
     font-size: 11px;
     opacity: 0.7;
-    color: #5C1624;
-}
-
-body.dark .history-row .history-price {
-    color: #F0D5DC;
+    color: #0A0A0A;
 }
 
 .history-row:active .history-price {
@@ -1165,11 +897,7 @@ body.dark .history-row .history-price {
 
 .history-row .history-arrow {
     font-size: 16px;
-    color: #5C1624;
-}
-
-body.dark .history-row .history-arrow {
-    color: #F0D5DC;
+    color: #0A0A0A;
 }
 
 .history-row:active .history-arrow {
@@ -1181,11 +909,7 @@ body.dark .history-row .history-arrow {
     padding: 20px;
     font-size: 14px;
     opacity: 0.6;
-    color: #5C1624;
-}
-
-body.dark .history-empty {
-    color: #F0D5DC;
+    color: #0A0A0A;
 }
 
 .history-clear-btn {
@@ -1194,8 +918,8 @@ body.dark .history-empty {
     padding: 10px;
     margin-top: 12px;
     background-color: #FFFFFF;
-    border: 1px solid #5C1624;
-    color: #5C1624;
+    border: 1px solid #0A0A0A;
+    color: #0A0A0A;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -1206,24 +930,12 @@ body.dark .history-empty {
     -webkit-tap-highlight-color: transparent;
 }
 
-body.dark .history-clear-btn {
-    background-color: #1A0A0F;
-    border-color: #6B2D3A;
-    color: #F0D5DC;
-}
-
 .history-clear-btn:active {
-    background-color: #5C1624;
+    background-color: #0A0A0A;
     color: #FFFFFF;
 }
 
-body.dark .history-clear-btn:active {
-    background-color: #8B3A4A;
-}
-
-/* ==================== */
 /* АНИМАЦИЯ УЛЕТА В КОРЗИНУ */
-/* ==================== */
 .fly-to-cart {
     position: fixed;
     z-index: 3000;
@@ -1231,68 +943,30 @@ body.dark .history-clear-btn:active {
     font-size: 28px;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* ==================== */
-/* СЧЁТЧИК ПРОСМОТРОВ */
-/* ==================== */
-.views-counter {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    opacity: 0.7;
-    margin-top: 3px;
-    color: #5C1624;
-    text-align: center;
+
+/* ТЕЛЕФОН */
+@media (max-width: 380px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .item .brand { font-size: 12px; }
+    .item .type { font-size: 11px; }
+    .item .price { font-size: 14px; }
+    .header h1 { font-size: 17px; letter-spacing: 1px; }
+    .filter-icon { font-size: 24px; }
 }
 
-body.dark .views-counter {
-    color: #F0D5DC;
+@media (min-width: 381px) and (max-width: 480px) {
+    .catalog { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .header h1 { font-size: 18px; }
 }
 
-.item:active .views-counter {
-    color: #FFFFFF;
-}
-/* ==================== */
-/* ПЕРЕКЛЮЧАТЕЛЬ ТИПА РАЗМЕРА */
-/* ==================== */
-.size-type-toggle {
-    display: flex;
-    gap: 0;
-    margin-bottom: 10px;
+@media (min-width: 481px) and (max-width: 768px) {
+    .catalog { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 }
 
-.size-type-btn {
-    flex: 1;
-    padding: 8px 4px;
-    background-color: #FFFFFF;
-    border: 2px solid #5C1624;
-    color: #5C1624;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    text-align: center;
-    transition: 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    text-transform: uppercase;
-}
-
-.size-type-btn:first-child {
-    border-right: none;
-}
-
-.size-type-btn.active {
-    background-color: #5C1624;
-    color: #FFFFFF;
-}
-
-body.dark .size-type-btn {
-    background-color: #1A0A0F;
-    border-color: #6B2D3A;
-    color: #F0D5DC;
-}
-
-body.dark .size-type-btn.active {
-    background-color: #8B3A4A;
-    color: #FFFFFF;
+@media (min-width: 769px) {
+    .catalog { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .item .photo .camera-icon { font-size: 44px; }
 }
