@@ -21,7 +21,6 @@
 
  <!-- Иконки: тема, история, избранное и корзина -->
  <div class="header-actions">
-    <button class="header-action-btn" onclick="toggleTheme()" title="Тема"><span id="themeIcon">🌙</span></button>
     <button class="header-action-btn" onclick="openHistory()" title="История">🕐</button>
     <button class="header-action-btn" onclick="openFavorites()" title="Избранное">♡<span class="badge" id="favBadge">0</span></button>
 </div>
@@ -44,12 +43,12 @@
 
     <div class="filter-group">
         <div class="filter-title">Категория</div>
-        <label><input type="checkbox" class="filter-category" value="shoes" onchange="applyFilters()"> 👟 Обувь</label>
-        <label><input type="checkbox" class="filter-category" value="hoodies" onchange="applyFilters()"> 👕 Кофты</label>
-        <label><input type="checkbox" class="filter-category" value="pants" onchange="applyFilters()"> 👖 Штаны</label>
-        <label><input type="checkbox" class="filter-category" value="caps" onchange="applyFilters()"> 🧢 Кепки</label>
-        <label><input type="checkbox" class="filter-category" value="bags" onchange="applyFilters()"> 👜 Сумки</label>
-        <label><input type="checkbox" class="filter-category" value="jackets" onchange="applyFilters()"> 🧥 Куртки</label>
+        <label><input type="checkbox" class="filter-category" value="shoes" onchange="applyFilters()">  Обувь</label>
+        <label><input type="checkbox" class="filter-category" value="hoodies" onchange="applyFilters()">  Кофты</label>
+        <label><input type="checkbox" class="filter-category" value="pants" onchange="applyFilters()">  Штаны</label>
+        <label><input type="checkbox" class="filter-category" value="caps" onchange="applyFilters()">  Кепки</label>
+        <label><input type="checkbox" class="filter-category" value="bags" onchange="applyFilters()">  Сумки</label>
+        <label><input type="checkbox" class="filter-category" value="jackets" onchange="applyFilters()">  Куртки</label>
     </div>
 
     <div class="filter-group">
@@ -66,8 +65,8 @@
     <div class="filter-group">
         <div class="filter-title">Размер</div>
         <div class="size-type-toggle">
-            <button class="size-type-btn active" id="sizeTypeShoes" onclick="switchSizeType('shoes')">👟 Обувь</button>
-            <button class="size-type-btn" id="sizeTypeClothes" onclick="switchSizeType('clothes')">👕 Одежда</button>
+            <button class="size-type-btn active" id="sizeTypeShoes" onclick="switchSizeType('shoes')"> Обувь</button>
+            <button class="size-type-btn" id="sizeTypeClothes" onclick="switchSizeType('clothes')"> Одежда</button>
         </div>
         <div id="sizeCheckboxes">
             <label><input type="checkbox" class="filter-size" value="37" onchange="applyFilters()"> 37</label>
@@ -96,7 +95,7 @@
 
     <!-- СТРОКА ПОИСКА -->
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="🔍 ПОИСК ПО БРЕНДУ ИЛИ НАЗВАНИЮ..." oninput="applyFilters()">
+        <input type="text" id="searchInput" placeholder=" ПОИСК ПО БРЕНДУ ИЛИ НАЗВАНИЮ..." oninput="applyFilters()">
     </div>
 
     <!-- КАТАЛОГ -->
@@ -193,8 +192,8 @@
 
     <!-- ПОДВАЛ -->
     <div class="footer">
-        <p>📦 ДОСТАВКА ИЗ РOССИИ: СДЭК / ПОЧТА РОССИИ / АВИТО ДОСТАВКА</p>
-        <p>💬 ДЛЯ ЗАКАЗА: <a href="https://t.me/DikarskiyStore">TELEGRAM</a> | <a href="https://www.avito.ru/brands/ddf3fd53c799ed565a706783601779fa">АВИТО</a></p>
+        <p> ДОСТАВКА ИЗ РOССИИ: СДЭК / ПОЧТА РОССИИ / АВИТО ДОСТАВКА</p>
+        <p> ДЛЯ ЗАКАЗА: <a href="https://t.me/DikarskiyStore">TELEGRAM</a> | <a href="https://www.avito.ru/brands/ddf3fd53c799ed565a706783601779fa">АВИТО</a></p>
         <p style="margin-top:8px;">© Dikarskiy Store — ВСЕ ВЕЩИ ПРОХОДЯТ ПРОВЕРКУ</p>
     </div>
 
@@ -211,10 +210,10 @@
          
             <!-- Кнопки "Поделиться" и "В избранное" -->
 <div class="modal-actions-row">
-    <button class="modal-share-btn" onclick="shareProduct()">📤 Поделиться</button>
-    <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavFromModal()">♡ В избранное</button>
+    <button class="modal-share-btn" onclick="shareProduct()">Поделиться</button>
+    <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavFromModal()">В избранное</button>
 </div>
-            <a href="https://t.me/DikarskiyStore" target="_blank" class="order-btn">🛒 ЗАКАЗАТЬ В TELEGRAM</a>
+            <a href="https://t.me/DikarskiyStore" target="_blank" class="order-btn">ЗАКАЗАТЬ В TELEGRAM</a>
         </div>
     </div>
   <script>
@@ -230,29 +229,6 @@ function closePanel() {
     document.getElementById('sidebar').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
 }
-
-// ====================
-// ТЁМНАЯ ТЕМА
-// ====================
-let darkMode = localStorage.getItem('dikarskiy_dark') === 'true';
-
-function applyTheme() {
-    if (darkMode) {
-        document.body.classList.add('dark');
-        document.getElementById('themeIcon').textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark');
-        document.getElementById('themeIcon').textContent = '🌙';
-    }
-}
-
-function toggleTheme() {
-    darkMode = !darkMode;
-    localStorage.setItem('dikarskiy_dark', darkMode);
-    applyTheme();
-}
-
-applyTheme();
 
 // ====================
 // МОДАЛЬНОЕ ОКНО ТОВАРА
@@ -468,9 +444,9 @@ function openFavorites() {
         if (!isNaN(priceNum)) total += priceNum;
     });
     
-    list += '\n📦 Всего товаров: ' + favorites.length;
-    list += '\n💰 Примерная сумма: ' + total.toLocaleString() + ' ₽';
-    list += '\n\n👇 Выбери действие:';
+    list += '\n Всего товаров: ' + favorites.length;
+    list += '\n Примерная сумма: ' + total.toLocaleString() + ' ₽';
+    list += '\n\n Выбери действие:';
     
     const action = confirm(
         list + '\n\nНажми "ОК" — отправить заказ в Telegram\nНажми "Отмена" — остаться в избранном'
@@ -482,7 +458,7 @@ function openFavorites() {
 }
 
 function sendFavoriteOrder() {
-    let message = '🛒 Новый заказ!\n\n';
+    let message = ' Новый заказ!\n\n';
     let total = 0;
     
     favorites.forEach((item, i) => {
@@ -491,9 +467,9 @@ function sendFavoriteOrder() {
         if (!isNaN(priceNum)) total += priceNum;
     });
     
-    message += '\n📦 Всего: ' + favorites.length + ' товаров';
-    message += '\n💰 Сумма: ~' + total.toLocaleString() + ' ₽';
-    message += '\n\nПрошу подтвердить наличие и сроки.';
+    message += '\n Всего: ' + favorites.length + ' товаров';
+    message += '\n Сумма: ~' + total.toLocaleString() + ' ₽';
+    message += '\n\n Прошу подтвердить наличие и сроки.';
     
     const url = 'https://t.me/' + YOUR_TELEGRAM + '?text=' + encodeURIComponent(message);
     window.open(url, '_blank');
@@ -508,7 +484,7 @@ function orderDirect(title, price) {
     const sizeText = size ? 'Размер: ' + size : 'Размер не указан';
     
     const message = encodeURIComponent(
-        '🛒 Новый заказ!\n\n' +
+        ' Новый заказ!\n\n' +
         'Товар: ' + title + '\n' +
         'Цена: ' + price + '\n' +
         sizeText
@@ -709,7 +685,7 @@ function orderDirect(title, price) {
     const sizeText = sizePrompt ? 'Размер: ' + sizePrompt : 'Размер не указан';
     
     const message = encodeURIComponent(
-        '🛒 Новый заказ!\n\n' +
+        ' Новый заказ!\n\n' +
         'Товар: ' + title + '\n' +
         'Цена: ' + price + '\n' +
         sizeText
