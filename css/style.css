@@ -38,13 +38,13 @@ body {
     cursor: pointer;
     user-select: none;
     padding: 8px 12px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     transition: 0.3s;
 }
 
 .filter-icon:active {
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 /* АВАТАРКА */
@@ -66,7 +66,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin: 0 0 6px;
-    background-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(0, 0, 0, 0.18);
     padding: 10px 28px;
     border-radius: 30px;
     backdrop-filter: blur(5px);
@@ -291,11 +291,11 @@ body {
 }
 
 .item:hover {
-    border-color: #0A0A0A;
+    border-color: #000000;
 }
 
 .item:active {
-    border-color: #0A0A0A;
+    border-color: #000000;
     transform: scale(0.98);
 }
 
@@ -339,7 +339,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .item .brand {
@@ -357,7 +357,7 @@ body {
     opacity: 0.6;
     margin-top: 6px;
     letter-spacing: 0.3px;
-    color: #0A0A0A;
+    color: #000000;
 }
 
 .item .price {
@@ -391,14 +391,14 @@ body {
     text-transform: uppercase;
     z-index: 5;
     pointer-events: none;
-    background-color: #0A0A0A;
-    color: #FFFFFF;
+    background-color: #000000;
+    color: #000000;
 }
 
 .item .badge-new {
-    background-color: #FFFFFF;
+    background-color: #000000;
     color: #0A0A0A;
-    border: 1px solid #0A0A0A;
+    border: 1px solid #000000;
 }
 
 /* СЕРДЕЧКО */
@@ -529,8 +529,8 @@ body {
 }
 
 .item .badge-hit {
-    background-color: #0A0A0A;
-    color: #FFFFFF;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .item .badge-new {
@@ -772,7 +772,7 @@ body {
     position: relative;
     width: 38px;
     height: 38px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 10px;
     color: #FFFFFF;
@@ -788,7 +788,7 @@ body {
 }
 
 .header-action-btn:active {
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 /* Счётчик на иконке */
