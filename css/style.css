@@ -47,14 +47,14 @@ body {
     cursor: pointer;
     user-select: none;
     padding: 8px 12px;
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgb(0, 0, 0);
     border-radius: 8px;
     color: #FFFFFF;
     line-height: 1;
 }
 
 .filter-icon:active {
-    background-color: rgba(255, 255, 255, 0.28);
+    background-color: rgb(0, 0, 0);
 }
 
 .header-actions {
@@ -73,7 +73,7 @@ body {
     min-width: 40px;
     height: 36px;
     padding: 0 10px;
-    background-color: rgba(255, 255, 255, 0.12);
+   background-color: rgb(0, 0, 0);
     border: none;
     border-radius: 8px;
     color: #FFFFFF;
@@ -89,7 +89,7 @@ body {
 }
 
 .header-action-btn:active {
-    background-color: rgba(255, 255, 255, 0.28);
+   background-color: rgb(0, 0, 0);
 }
 
 .badge {
